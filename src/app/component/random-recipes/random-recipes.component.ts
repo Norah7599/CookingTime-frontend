@@ -6,5 +6,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./random-recipes.component.css']
 })
 export class RandomRecipesComponent {
+  recipes: any[] = [];
 
+  selectedRecipe: any;
+
+  constructor() {
+    this.getRandomRecipe();
+  }
+
+  getRandomRecipe(): void {
+    if (this.recipes && this.recipes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * this.recipes.length);
+      this.selectedRecipe = this.recipes[randomIndex];
+    } else {
+      console.error('No recipes');
+    }
+  }
 }

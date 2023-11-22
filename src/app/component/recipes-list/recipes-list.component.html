@@ -1,2 +1,17 @@
 <app-nav-bar></app-nav-bar>
 <div class="login-container"></div>
+<ul>
+  <li *ngFor="let recipe of recipes">
+    <div class="recipe-item">
+      <span>{{ recipe.title }}</span> <br>
+      <span>{{ recipe.ingredients }}</span> <br>
+      <span>{{ recipe.instructions }}</span>
+      <br><br>
+      
+      <button class="update-button" (click)="updateRecipe(recipe)">UPDATE</button>
+      
+      
+      <button class="delete-button" (click)="deleteRecipe(recipe)">DELETE</button>
+    </div>
+  </li>
+</ul>
