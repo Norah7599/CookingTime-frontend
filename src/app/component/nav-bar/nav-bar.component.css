@@ -1,0 +1,23 @@
+nav {
+    background-color: rgb(39, 22, 6);
+    text-align: center;
+    padding: 15px;
+  }
+  
+  a {
+    display: inline-block;
+    color: #75553b; 
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 20px; 
+  }
+  
+  a:hover {
+    background-color: #d8d2bf; 
+  }
+ 
+  
+ 
