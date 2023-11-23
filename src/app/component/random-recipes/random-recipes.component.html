@@ -1,6 +1,11 @@
 <app-nav-bar></app-nav-bar>
 
 <div class="login-container">
-   
+    <div *ngIf="selectedRecipe">
+        <h2>Random Recipe</h2>
+        <p>Title: {{ selectedRecipe.title }}</p>
+        <p>Ingredients: {{ selectedRecipe.ingredients }}</p>
+        <p>Instructions: {{ selectedRecipe.instructions }}</p>
+      </div>
   </div>
   

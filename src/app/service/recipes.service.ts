@@ -21,4 +21,8 @@ export class RecipesService {
   deleteRecipe(recipeId: number): Observable<string> {
     return this.http.delete<string>(`http://localhost:8080/CooK/delete/${recipeId}`);
   }
+  updateRecipe(recipe: Recipe): Observable<Recipe> {
+    const url = `${this.apiUrl}/CooK/update`;
+    return this.http.put<Recipe>(url, recipe);
+  }
 }

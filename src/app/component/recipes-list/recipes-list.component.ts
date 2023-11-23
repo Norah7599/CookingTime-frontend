@@ -8,9 +8,14 @@ import { RecipesService } from 'src/app/service/recipes.service';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
-updateRecipe(_t7: Recipe) {
-throw new Error('Method not implemented.');
-}
+// ... (الاستيرادات)
+
+@Component({
+  selector: 'app-recipes-list',
+  templateUrl: './recipes-list.component.html',
+  styleUrls: ['./recipes-list.component.css']
+})
+
   recipes: Recipe[] =[];
 
   constructor(private recipesService: RecipesService) { }
@@ -21,10 +26,8 @@ throw new Error('Method not implemented.');
 
   getRecipesList(): void {
     this.recipesService.getRecipesList()
-      .subscribe(recipes => this.recipes = recipes);
+      .subscribe(recipes => this.recipes = recipes.map(recipe => ({ ...recipe, isEditing: false })));
   }
-
-
 
   deleteRecipe(recipe: Recipe): void {
     console.log(recipe.recipeid);
@@ -39,5 +42,36 @@ throw new Error('Method not implemented.');
       console.error('Invalid recipe ID:', recipe);
     }
   }
+
+  updateRecipe(recipe: Recipe): void {
+    
+  }
+
+  toggleEdit(recipe: Recipe): void {
+   
+    recipe.isEditing = !recipe.isEditing;
+    
+    
+    if (recipe.isEditing) {
+      recipe.editedTitle = recipe.title;
+      recipe.editedIngredients = recipe.ingredients;
+      recipe.instructions = recipe.instructions;
+    }
+  }
+
+  saveChanges(recipe: Recipe): void {
+    recipe.title = recipe.editedTitle;
+    recipe.ingredients = recipe.editedIngredients;
+    recipe.instructions = recipe.instructions;
   
+    recipe.isEditing = false;
+  
+    
+    this.recipesService.updateRecipe(recipe).subscribe(updatedRecipe => {
+      console.log('Recipe updated successfully:', updatedRecipe);
+    }, error => {
+      console.error('Error updating recipe:', error);
+    });
+  }
 }
+

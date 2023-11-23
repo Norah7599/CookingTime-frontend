@@ -10,7 +10,7 @@ import { RandomRecipesComponent } from './component/random-recipes/random-recipe
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-  
+    FormsModule
    
   ],
   providers: [],
