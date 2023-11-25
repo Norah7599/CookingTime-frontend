@@ -1,5 +1,6 @@
 # CookingTime-frontend
 [Mytrello](https://trello.com/b/996uo2Wb/my-project)
+[My presentation](https://prezi.com/p/edit/izsiuxdvmjvp/)
 # CookingTime Frontend
 
 This is the frontend for the CookingTime application, built using Angular.
